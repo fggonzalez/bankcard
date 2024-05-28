@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Optional;
+
 @Service
 public class TransactionService {
     @Autowired
@@ -22,6 +23,11 @@ public class TransactionService {
         Optional<CreditCard> optionalCard = cardRepo.findById(cardId);
         if (optionalCard.isPresent()) {
             CreditCard card = optionalCard.get();
+            // Asegúrate de que la tarjeta tiene una fecha de expiración válida
+            if (card.getExpiration() == null) {
+                throw new RuntimeException("Transaction failed: Card expiration date is not set");
+            }
+
             if (card.isActive() && !card.isBlocked() && card.getTotalBalance().compareTo(amount) >= 0 && card.getExpiration().isAfter(LocalDateTime.now().toLocalDate())) {
                 card.setTotalBalance(card.getTotalBalance().subtract(amount));
                 cardRepo.save(card);
@@ -57,7 +63,7 @@ public class TransactionService {
                     cardRepo.save(card);
                     return creditCardTransaction;
                 } else {
-                    throw new RuntimeException("Card not found on System");
+                    throw new RuntimeException("Card not found in the system");
                 }
             } else {
                 throw new RuntimeException("Transaction cannot be annulled after 24 hours");

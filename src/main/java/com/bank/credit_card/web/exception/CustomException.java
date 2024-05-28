@@ -1,4 +1,4 @@
-package com.bank.credit_card.web.controller.exception;
+package com.bank.credit_card.web.exception;
 import org.springframework.http.HttpStatus;
 
 public class CustomException extends RuntimeException {

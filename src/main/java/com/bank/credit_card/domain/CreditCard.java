@@ -1,7 +1,10 @@
 package com.bank.credit_card.domain;
 
+import com.bank.credit_card.persistence.entity.Transaction;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 
 public class CreditCard {
     private String idCard;
@@ -12,6 +15,15 @@ public class CreditCard {
     private  boolean blocked;
 
     private BigDecimal totalBalance;
+    private List<Transaction> transactionList;
+
+    public List<Transaction> getTransactionList() {
+        return transactionList;
+    }
+
+    public void setTransactionList(List<Transaction> transactionList) {
+        this.transactionList = transactionList;
+    }
 
     public BigDecimal getTotalbalance() {
         return totalBalance;

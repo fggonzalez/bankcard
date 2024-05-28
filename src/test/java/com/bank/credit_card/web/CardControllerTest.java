@@ -1,6 +1,7 @@
-package com.bank.credit_card.web.controller;
+package com.bank.credit_card.web;
 
 import com.bank.credit_card.domain.service.CardService;
+import com.bank.credit_card.web.controller.CardController;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;

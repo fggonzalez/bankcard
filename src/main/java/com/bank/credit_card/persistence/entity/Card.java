@@ -13,19 +13,19 @@ import java.util.Objects;
 public class Card {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name ="cardid" )
+    @Column(name = "cardid", length = 16)
      private String cardId;
-    @Column(name ="productid" )
+    @Column(name = "productid", length = 6, nullable = false)
     private String productId;
-    @Column(name ="cardholdername" )
+    @Column(name = "cardholdername", length = 100, nullable = false)
     private String cardHolderName;
-    @Column(name ="expirationdate" )
+    @Column(name = "expirationdate", nullable = false)
     private LocalDateTime expirationDate;
-    @Column(name ="isactive" )
+    @Column(name = "isactive", nullable = false)
     private Boolean isActive;
-    @Column(name ="isblocked" )
+    @Column(name = "isblocked", nullable = false)
     private  Boolean isBlocked;
-    @Column(name ="balance" )
+    @Column(name = "balance", nullable = false)
     private BigDecimal balance;
 
     @OneToMany(mappedBy = "card")

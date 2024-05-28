@@ -1,4 +1,4 @@
-package com.bank.credit_card.web.controller;
+package com.bank.credit_card.web;
 
 
 import jakarta.servlet.http.HttpServletRequest;

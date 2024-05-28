@@ -15,7 +15,8 @@ public interface CardMapper {
             @Mapping(source = "cardHolderName",target = "holderName"),
             @Mapping(source = "expirationDate",target = "expiration"),
             @Mapping(source = "active",target = "active"),
-            @Mapping(source = "balance",target = "totalBalance")
+            @Mapping(source = "balance",target = "totalBalance"),
+            @Mapping(source = "transaction", target = "transactionList")
     }
 
     )

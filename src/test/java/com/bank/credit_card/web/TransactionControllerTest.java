@@ -1,9 +1,8 @@
-package com.bank.credit_card.web.controller;
+package com.bank.credit_card.web;
 
 import com.bank.credit_card.domain.CreditCardTransaction;
-import com.bank.credit_card.domain.dto.AnulateTransactionRequest;
-import com.bank.credit_card.domain.dto.PurchaseRequest;
 import com.bank.credit_card.domain.service.TransactionService;
+import com.bank.credit_card.web.controller.TransactionController;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
