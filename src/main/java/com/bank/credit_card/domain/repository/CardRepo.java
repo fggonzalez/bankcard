@@ -1,7 +1,6 @@
 package com.bank.credit_card.domain.repository;
 
 import com.bank.credit_card.domain.CreditCard;
-import com.bank.credit_card.domain.dto.CardDTO;
 
 import java.util.Optional;
 

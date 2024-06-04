@@ -3,6 +3,7 @@ package com.bank.credit_card.persistence.entity;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
@@ -12,25 +13,34 @@ import java.util.Objects;
 @Table(name="card")
 public class Card {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cardid", length = 16)
-     private String cardId;
+    private String cardId;
     @Column(name = "productid", length = 6, nullable = false)
     private String productId;
+    //@Column(name = "cardnumber", length = 16, unique = true, nullable = false)
+    //private String cardNumber;
     @Column(name = "cardholdername", length = 100, nullable = false)
     private String cardHolderName;
     @Column(name = "expirationdate", nullable = false)
-    private LocalDateTime expirationDate;
+    private LocalDate expirationDate;
     @Column(name = "isactive", nullable = false)
     private Boolean isActive;
     @Column(name = "isblocked", nullable = false)
-    private  Boolean isBlocked;
+    private Boolean isBlocked;
     @Column(name = "balance", nullable = false)
     private BigDecimal balance;
 
     @OneToMany(mappedBy = "card")
     private List<Transaction> transaction;
 
+    //public String getCardNumber() {
+    //    return cardNumber;
+    //}
+
+    //public void setCardNumber(String cardNumber) {
+      //  this.cardNumber = cardNumber;
+    //    }
 
 
     public String getCardId() {
@@ -70,11 +80,11 @@ public class Card {
         this.cardHolderName = cardHolderName;
     }
 
-    public LocalDateTime getExpirationDate() {
+    public LocalDate getExpirationDate() {
         return expirationDate;
     }
 
-    public void setExpirationDate(LocalDateTime expirationDate) {
+    public void setExpirationDate(LocalDate expirationDate) {
         this.expirationDate = expirationDate;
     }
 
@@ -117,6 +127,7 @@ public class Card {
     public void setNumeric(BigDecimal numeric) {
         this.balance = numeric;
     }
+
 
 
 

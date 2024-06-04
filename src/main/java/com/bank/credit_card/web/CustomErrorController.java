@@ -21,7 +21,7 @@ public class CustomErrorController implements ErrorController {
         Map<String, Object> body = new HashMap<>();
         body.put("status", status.value());
         body.put("error", status.getReasonPhrase());
-        body.put("message", "There was an unexpected error. Please try again.");
+        body.put("message", "Error Inesperado por favor intente de nuevo ");
         body.put("path", request.getRequestURI());
         return new ResponseEntity<>(body, status);
     }

@@ -90,7 +90,19 @@ public class CreditCard {
         this.blocked = blocked;
     }
 
-
+    @Override
+    public String toString() {
+        return "CreditCard{" +
+                "idCard='" + idCard + '\'' +
+                ", idProduct='" + idProduct + '\'' +
+                ", holderName='" + holderName + '\'' +
+                ", expiration=" + expiration +
+                ", active=" + active +
+                ", blocked=" + blocked +
+                ", totalBalance=" + totalBalance +
+                ", transactionList=" + transactionList +
+                '}';
+    }
 
 
 

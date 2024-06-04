@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 @Entity
 @Table(name = "transaction")
@@ -64,4 +65,33 @@ public class Transaction {
     public void setAnulled(boolean anulled) {
         isAnulled = anulled;
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, cardId, amount, timestamp, isAnulled);
+    }
+
+    @Override
+    public String toString() {
+        return "Transaction{" +
+                "id=" + id +
+                ", cardId='" + cardId + '\'' +
+                ", amount=" + amount +
+                ", timestamp=" + timestamp +
+                ", isAnulled=" + isAnulled +
+                '}';
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Transaction that = (Transaction) o;
+        return isAnulled == that.isAnulled &&
+                Objects.equals(id, that.id) &&
+                Objects.equals(cardId, that.cardId) &&
+                Objects.equals(amount, that.amount) &&
+                Objects.equals(timestamp, that.timestamp);
+    }
+
+
 }

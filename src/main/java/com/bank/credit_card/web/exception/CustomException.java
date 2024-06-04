@@ -2,7 +2,7 @@ package com.bank.credit_card.web.exception;
 import org.springframework.http.HttpStatus;
 
 public class CustomException extends RuntimeException {
-    private HttpStatus status;
+    private final  HttpStatus status;
 
     public CustomException(String message, HttpStatus status) {
         super(message);

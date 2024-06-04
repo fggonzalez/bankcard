@@ -37,7 +37,7 @@ public class CardRepository  implements CardRepo {
 
     @Override
     public void deleteById(String id) {
-
+        cardCrudRepository.deleteById(Long.parseLong(id));
     }
 
 
